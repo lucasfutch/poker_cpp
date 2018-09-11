@@ -8,7 +8,8 @@
 
 int main() {
 	Deck deck;
-	deck.makeDeck();
+	deck.makeDeck(4,13);
+	deck.printDeck();
 	deck.shuffle();
 
 	Hand p1;

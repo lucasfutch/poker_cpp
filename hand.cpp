@@ -4,11 +4,14 @@
 Hand::Hand() {}
 
 void Hand::makeHand(Deck &deck) {
-	// while (!deck.empty()) {
 	for (int i = 0; i < 5; i++) {
-		myHand.push_back(deck.draw());
+		if (deck.getSize() > 0) {
+			myHand.push_back(deck.draw());
+		}
+		else {
+			return;
+		}
 	}
-	// }
 }
 
 void Hand::printHand() {

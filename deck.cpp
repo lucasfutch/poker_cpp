@@ -4,22 +4,46 @@
 
 Deck::Deck() {}
 
-void Deck::makeDeck() {
-	for (unsigned int i(0); i < SUITMAX; ++i)
-    {
-        for (unsigned int j(0); j < RANKMAX; ++j)
-        {
-            Card newCard(i, j);
-            myDeck.push_back(newCard);
-        }
-    }
+void Deck::makeDeck(int suit, int rank) {
+
+	try {
+		for (int i = 0; i < suit; ++i) {
+	        for (unsigned int j(0); j < rank; ++j)
+	        {
+	            Card newCard(i, j);
+	            if (newCard.getSuit() == SUITMAX || newCard.getRank() == RANKMAX) {
+	      			myDeck.clear();
+	            	throw 1;
+	            }
+	            myDeck.push_back(newCard);
+	        }
+   		}
+	}
+	
+	catch (int e) {
+		std::cout << "Exceeded SUIT or RANK MAX." << std::endl;
+	}
+
+	// return myDeck;
 }
 
 void Deck::printDeck() {
-	for (auto& iter : myDeck) {
-	    std::cout << iter.CardToString() << " ";
+
+	try {
+		if (myDeck.empty()) {
+			throw 1;
+		}
+
+		for (auto& iter : myDeck) {
+	    	std::cout << iter.CardToString() << " ";
+		}
+		std::cout << "\n";
 	}
-	std::cout << "\n";
+	catch (int e) {
+		std::cout << "Deck is empty!" << std::endl;
+	}
+
+	
 }
 
 Card Deck::draw() {   
@@ -27,9 +51,6 @@ Card Deck::draw() {
 	    Card cd = myDeck.back();
 	    myDeck.pop_back();
 	    return cd;
-	}
-	else {
-		return Card(-1,-1);
 	}
 }
 

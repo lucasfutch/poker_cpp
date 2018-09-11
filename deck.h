@@ -6,12 +6,10 @@
 #include <fstream>
 #include "card.h"
 
-const int DECKSIZE(52);
-
 class Deck {
 public:
 	explicit Deck();
-	void makeDeck();
+	void makeDeck(int suit, int rank);
 	void printDeck();
 	Card draw();
 	Card const& top() const;
