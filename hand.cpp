@@ -52,45 +52,21 @@ int Hand::binarySearch(std::vector<Card> hand, Card item, int low, int high) {
 	return binarySearch(hand, item, mid + 1, high);
 }
 
-void Hand::binarySortHand() {
-	int i, j, k, loc;
+void Hand::insertionSortHand() {
+	int i, j, k, newLocation;
 	Card selected;
 
 	for (i = 1; i < myHand.size(); i++) {
 		j = i - 1;
 		selected = myHand[i];
 
-		loc = binarySearch(myHand, selected, 0, j);
+		newLocation = binarySearch(myHand, selected, 0, j);
 
-		while (j >= loc) {
+		while (j >= newLocation) {
 			myHand[j + 1] = myHand[j];
 			j--;
 		}
-		myHand[j+1] = selected;
+		myHand[j + 1] = selected;
 	}
 	
 }
-
-/*
-
-0	1	2	3	4
-k	4	a 	k	8
-	i
-j
-	sel
-loc 
-
-bs(hand, 6, 0, 0)
-loc = 0
-
-
-
-
-
-
-
-*/
-
-
-
-

@@ -14,7 +14,7 @@ public:
 	void printHand();
 	void getCard(Deck &deck);
 	int binarySearch(std::vector<Card> hand, Card item, int low, int high);
-	void binarySortHand();
+	void insertionSortHand();
 private:
 	std::vector<Card> myHand;
 };

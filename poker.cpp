@@ -15,7 +15,7 @@ int main() {
 	Hand p1;
 	p1.makeHand(deck);
 	p1.printHand();
-	p1.binarySortHand();
+	p1.insertionSortHand();
 	p1.printHand();
 
 	return 0;
