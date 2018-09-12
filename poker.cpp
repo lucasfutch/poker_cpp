@@ -8,12 +8,14 @@
 
 int main() {
 	Deck deck;
-	deck.makeDeck(4,13);
+	deck.makeDeck(4, 13); // (4,13)
 	deck.printDeck();
 	deck.shuffle();
 
 	Hand p1;
 	p1.makeHand(deck);
+	p1.printHand();
+	p1.binarySortHand();
 	p1.printHand();
 
 	return 0;

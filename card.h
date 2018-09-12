@@ -13,7 +13,7 @@ public:
 
 	int getSuit() const;
 	int getRank() const;
-	std::string CardToString() const;
+	std::string cardToString() const;
 	void printCard();
 
 private:

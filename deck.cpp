@@ -35,7 +35,7 @@ void Deck::printDeck() {
 		}
 
 		for (auto& iter : myDeck) {
-	    	std::cout << iter.CardToString() << " ";
+	    	std::cout << iter.cardToString() << " ";
 		}
 		std::cout << "\n";
 	}
@@ -48,9 +48,12 @@ void Deck::printDeck() {
 
 Card Deck::draw() {   
 	if (!myDeck.empty()) {
-	    Card cd = myDeck.back();
+	    Card drawCard = myDeck.back();
 	    myDeck.pop_back();
-	    return cd;
+	    return drawCard;
+	}
+	else {
+		return Card();
 	}
 }
 
