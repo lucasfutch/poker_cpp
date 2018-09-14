@@ -19,6 +19,10 @@ void Hand::makeHand(Deck &deck) {
 	}
 }
 
+std::vector<Card> Hand::showHand() {
+	return myHand;
+}
+
 void Hand::printHand() {
 	for (auto& iter : myHand) {
 	    std::cout << iter.cardToString() << " ";
@@ -40,6 +44,10 @@ void Hand::getCard(Deck &deck) {
 	}
 }
 
+void Hand::getCard(Card card) {
+	myHand.push_back(card);
+}
+
 int Hand::binarySearch(std::vector<Card> hand, Card item, int low, int high) {
 	if (high <= low) 
 		return (item.getRank() > hand[low].getRank()) ? low : (low + 1);
@@ -52,7 +60,9 @@ int Hand::binarySearch(std::vector<Card> hand, Card item, int low, int high) {
 	return binarySearch(hand, item, mid + 1, high);
 }
 
-void Hand::insertionSortHand() {
+// Uses insertion sort
+//
+void Hand::sortHand() {
 	int i, j, k, newLocation;
 	Card selected;
 
@@ -68,5 +78,14 @@ void Hand::insertionSortHand() {
 		}
 		myHand[j + 1] = selected;
 	}
-	
 }
+
+// bool Hand::checkFlush() {
+// 	int suits = myHand[0].getSuit();
+// 	for (int i = 0; i < myHand.size(); i++) {
+// 		if (suits != myHand[i].getSuit()) {
+// 			return false;
+// 		}
+// 	}
+// 	return true;
+// }

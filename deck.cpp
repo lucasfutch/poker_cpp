@@ -5,7 +5,6 @@
 Deck::Deck() {}
 
 void Deck::makeDeck(int suit, int rank) {
-
 	try {
 		for (int i = 0; i < suit; ++i) {
 	        for (unsigned int j(0); j < rank; ++j)
@@ -23,12 +22,9 @@ void Deck::makeDeck(int suit, int rank) {
 	catch (int e) {
 		std::cout << "Exceeded SUIT or RANK MAX." << std::endl;
 	}
-
-	// return myDeck;
 }
 
 void Deck::printDeck() {
-
 	try {
 		if (myDeck.empty()) {
 			throw 1;
@@ -42,8 +38,6 @@ void Deck::printDeck() {
 	catch (int e) {
 		std::cout << "Deck is empty!" << std::endl;
 	}
-
-	
 }
 
 Card Deck::draw() {   
