@@ -5,18 +5,19 @@
 #include "card.h"
 #include "deck.h"
 #include "hand.h"
+#include "rules.h"
+#include "testing.h"
 
 int main() {
 	Deck deck;
 	deck.makeDeck(4, 13); // (4,13)
-	deck.printDeck();
 	deck.shuffle();
 
 	Hand p1;
 	p1.makeHand(deck);
-	p1.printHand();
-	p1.insertionSortHand();
+	p1.sortHand();
 	p1.printHand();
 
+	// runTesting(); // expect 1 for all tests
 	return 0;
 }
